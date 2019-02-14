@@ -78,17 +78,30 @@ under23_and_smoke <- subset(cdc, cdc$age < 23 & cdc$smoke100 == 1)
 
 #### Exercise 5:
 
+
+
+```{r}
 bmi <- (cdc$weight/cdc$height^2) * 703
 boxplot(bmi ~ cdc$genhlth)
 
-```{r}
+# This plot shows the bmi in accordance to thier general health.
+# This is an obvious correlation that shows how bmi rises as general
+# health becomes worse.
+
+boxplot(bmi ~ cdc$exerany)
+# This plot shows that bmi goes down as exercise increases. 
+# These have a correlation because as you exercise more, BMI goes down.
 
 ```
 
 #### Exercise 6:
 
 ```{r fig.width=7, fig.height=5}
-
+plot(cdc$weight, cdc$wtdesire, type = 'p')
+# This plot shows a regression line that seems to be ~ y = x
+# This shows a correlation of people giving desired weights that are 
+# relatively close to their current weight. 
+# This is why the (estimated) regression lines has a slope of ~1. 
 ```
 
 ```{r fig.width=7, fig.height=5}
