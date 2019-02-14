@@ -24,7 +24,7 @@ names(cdc)
 #### Exercise 1: 
 head(cdc)
 tail(cdc)
-## There are 20000 responses in the dataset. There are 9 variables in the dataset.
+# There are 20000 responses in the dataset. There are 9 variables in the dataset.
 # genhlth -> ordinal categorical
 # exerany -> unordered (regular) categirical
 # hlthplan -> regular categorical
