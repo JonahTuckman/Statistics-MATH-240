@@ -11,7 +11,8 @@
   
   
   
-  
+  install.packages("ggplot2")
+  library("ggplot2")
   ### Exercises
 
 #### Load CDC data:
@@ -97,7 +98,13 @@ boxplot(bmi ~ cdc$exerany)
 #### Exercise 6:
 
 ```{r fig.width=7, fig.height=5}
-plot(cdc$weight, cdc$wtdesire, type = 'p')
+plot(cdc$weight, cdc$wtdesire, type = 'p') # Plot of points
+plotttt <- ggplot(cdc, aes(x = cdc$weight,y = cdc$wtdesire)) + geom_point() + geom_smooth()
+plotttt
+# Plot of points as well as regression line
+
+
+
 # This plot shows a regression line that seems to be ~ y = x
 # This shows a correlation of people giving desired weights that are 
 # relatively close to their current weight. 
