@@ -99,8 +99,8 @@ boxplot(bmi ~ cdc$exerany)
 
 ```{r fig.width=7, fig.height=5}
 plot(cdc$weight, cdc$wtdesire, type = 'p') # Plot of points
-plotttt <- ggplot(cdc, aes(x = cdc$weight,y = cdc$wtdesire)) + geom_point() + geom_smooth()
-plotttt
+#plotttt <- ggplot(cdc, aes(x = cdc$weight,y = cdc$wtdesire)) + geom_point() + geom_smooth()
+#plotttt
 # Plot of points as well as regression line
 
 
