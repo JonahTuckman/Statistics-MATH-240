@@ -1,4 +1,12 @@
-<!-- Instructions: This is the template you will use to type up your responses to the exercises and the on your own questions. To produce a document that you can print out and turn in just click on Knit HTML above. All you need to do to complete the lab is to type up your BRIEF answers and the R code (when necessary) in the spaces provided below. If you want to find out more about the markdown language click on the MD icon. -->
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+<!-- Instructions: This is the template you will use to type up your responses to the exercises and the on your
+own questions. To produce a document that you can print out and turn in just click on Knit HTML above. All you
+need to do to complete the lab is to type up your BRIEF answers and the R code (when necessary) in the spaces 
+provided below. If you want to find out more about the markdown language click on the MD icon. -->
   
   Lab 1 
 ========================================================
@@ -9,12 +17,11 @@
   
   #### Discussants (other team members present in lab): 
   
+  install.packages("knitr")
+  library("knitr")
   
-  
-  install.packages("ggplot2")
-  library("ggplot2")
   ### Exercises
-
+  
 #### Load CDC data:
 
 ```{r}
@@ -23,31 +30,35 @@ names(cdc)
 ```
 
 #### Exercise 1: 
-head(cdc)
-tail(cdc)
-# There are 20000 responses in the dataset. There are 9 variables in the dataset.
-# genhlth -> ordinal categorical
-# exerany -> unordered (regular) categirical
-# hlthplan -> regular categorical
-# smoke100 -> regular categorical 
-# height -> continuous 
-# weight -> continuous 
-# wtdesire -> continuous 
-# age -> continuous
-# gender -> regular categorical 
+head(cdc)   
+tail(cdc)   
+There are 20000 responses in the dataset. There are 9 variables in the dataset.  
+genhlth -> ordinal categorical  
+exerany -> unordered (regular) categirical   
+hlthplan -> regular categorical  
+smoke100 -> regular categorical   
+height -> continuous   
+weight -> continuous   
+wtdesire -> continuous    
+age -> continuous   
+gender -> regular categorical    
 
 
-summary(cdc$weight)
-table(cdc$smoke100)/20000  # percentage
-barplot(table(cdc$smoke100))
+summary(cdc$weight)      
+table(cdc$smoke100)/20000  # percentage   
+barplot(table(cdc$smoke100))   
 
 
 #### Exercise 2:
 
 
 ```{r}
-summary(cdc$height) # 1st -> 64.00 3rd -> 70.00
-summary(cdc$age) # 1st -> 31.00 3rd -> 57.00
+summary(cdc$height)
+# 1st -> 64.00 3rd -> 70.00
+
+summary(cdc$age) 
+# 1st -> 31.00 3rd -> 57.00
+
 
 IQRHeight <- (70 - 64)
 IQRAge <- (57.00 - 31.00)
@@ -67,6 +78,8 @@ table(cdc$genhlth)/20000
 ```{r}
 mosaicplot(table(cdc$gender, cdc$smoke100))
 # This revealed that slightly more males smoke than females. 
+# This is shown because the portion of men with a 1 response (1 is equivalent to True in binary)
+# is higher than that of females with a 1 response.
 
 ```
 
@@ -91,7 +104,7 @@ boxplot(bmi ~ cdc$genhlth)
 
 boxplot(bmi ~ cdc$exerany)
 # This plot shows that bmi goes down as exercise increases. 
-# These have a correlation because as you exercise more, BMI goes down.
+# These have a causation relationship because as you exercise more, your body mass index will go down.
 
 ```
 
@@ -99,16 +112,14 @@ boxplot(bmi ~ cdc$exerany)
 
 ```{r fig.width=7, fig.height=5}
 plot(cdc$weight, cdc$wtdesire, type = 'p') # Plot of points
-#plotttt <- ggplot(cdc, aes(x = cdc$weight,y = cdc$wtdesire)) + geom_point() + geom_smooth()
-#plotttt
-# Plot of points as well as regression line
 
 
-
-# This plot shows a regression line that seems to be ~ y = x
+# This plot shows a regression line that seems to be ~ (approximately) y = x
 # This shows a correlation of people giving desired weights that are 
 # relatively close to their current weight. 
 # This is why the (estimated) regression lines has a slope of ~1. 
+# There are a few outliers which indicate people either making jokes about their weight,
+# or about very serious dreams of weight loss. 
 ```
 
 ```{r fig.width=7, fig.height=5}
