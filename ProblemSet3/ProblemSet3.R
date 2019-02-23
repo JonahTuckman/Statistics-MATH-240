@@ -9,13 +9,16 @@ qqline(bdims$hgt)
 # letter B.
 # (b) The histogram for female elbow diameter (elb.di) belongs to normal probability plot letter C.
 # (c) The histogram for general age (age) belongs to normal probability plot letter D.
-# (d) The histogram for female chest depth (che.de) belongs to normal probability plot letter .
+# (d) The histogram for female chest depth (che.de) belongs to normal probability plot letter A.
 
 
 # Bii.di
 meanA = mean(bdims$bii.di)
 sdA = sd(bdims$bii.di, na.rm = FALSE)
+
 hist((bdims$bii.di - meanA) / sdA)
+
+
 
 qqnorm(bdims$bii.di)
 qqline(bdims$bii.di) ## Belongs to probability plot B
@@ -35,3 +38,12 @@ hist((bdims$age - meanC) / sdC)
 
 qqnorm(bdims$age)
 qqline(bdims$age) ## Belongs to probability plot D
+
+#Che.de
+meanD = mean(bdims$che.de)
+sdD = sd(bdims$che.de)
+hist((bdims$che.de - meanD) - sdD)
+
+qqnorm(bdims$che.de)
+qqline(bdims$che.de) ## Belonds to probability plot A
+
