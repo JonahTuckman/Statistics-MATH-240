@@ -16,37 +16,35 @@ qqline(bdims$hgt)
 meanA = mean(bdims$bii.di)
 sdA = sd(bdims$bii.di, na.rm = FALSE)
 adjustedA = ((bdims$bii.di - meanA) / sdA)
-hist(adjustedA)
+hist(adjustedA, main = "BII.DI")
 
-
-
-qqnorm(adjustedA)
+qqnorm(adjustedA, main = "BII.DI")
 qqline(adjustedA) ## Belongs to probability plot B
 
 # Elb.di
 meanB = mean(bdims$elb.di)
 sdB = sd(bdims$elb.di)
 adjustedB = ((bdims$elb.di - meanB) / sdB)
-hist(adjustedB)
+hist(adjustedB, main = "ELB.DI")
 
-qqnorm(adjustedB)
+qqnorm(adjustedB, main = "ELB.DI")
 qqline(adjustedB) ## Belongs to probability plot C
 
 # Age
 meanC = mean(bdims$age)
 sdC = sd(bdims$age)
 adjustedC = ((bdims$age - meanC) / sdC)
-hist(adjustedC)
+hist(adjustedC, main = "Age")
 
-qqnorm(adjustedC)
+qqnorm(adjustedC, main = "Age")
 qqline(adjustedC) ## Belongs to probability plot D
 
 #Che.de
 meanD = mean(bdims$che.de)
 sdD = sd(bdims$che.de)
 adjustedD = ((bdims$che.de - meanD) - sdD)
-hist(adjustedD)
+hist(adjustedD,  main = "CHE.DE")
 
-qqnorm(adjustedD)
+qqnorm(adjustedD, main = "CHE.DE")
 qqline(adjustedD) ## Belonds to probability plot A
 
