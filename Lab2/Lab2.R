@@ -21,3 +21,15 @@ samp0 <- sample(area,50)
 summary(samp0)
 
 
+#### Exersice 2 -> random sample
+set.seed(127)
+samp1 <- sample(area, 50)
+summary(samp1)
+
+
+### Excercise 3 -> Describe new sample
+
+
+
+
+###
