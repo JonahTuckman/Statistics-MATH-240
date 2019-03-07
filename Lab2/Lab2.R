@@ -1,4 +1,5 @@
-
+### Lab 2 // Math 241 Statistics 
+### Author: Jonah Tuckman
 
 
 setwd('/Users/JonahTuckman/Desktop/Statistics/Statistics-MATH-240/Lab2')
