@@ -98,10 +98,21 @@ hist(sample_means100, breaks = 20, xlim = xlimits, col = "green")
 sample_price50 <-sample(price, 50)
 hist(sample_price50)
 
+
+### Excercise 9
 for( i in 1:5000){
   temp <- sample(price, 50)
   sample_price50[i] <- mean(temp)
 }
 hist(sample_price50, breaks = 20)
+mean(sample_price50)
 
-### Excercise 9
+### Excercise 10
+sample_price150 <- rep(0, 5000)
+for(i in 1:5000){
+  temp <- sample(price, 150)
+  sample_price150[i] <- mean(temp)
+}
+
+hist(sample_price150, breaks = 20)
+mean(sample_price150)
