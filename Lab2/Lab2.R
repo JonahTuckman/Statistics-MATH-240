@@ -119,3 +119,9 @@ hist(sample_price150, breaks = 20)
 mean(sample_price150)
 
 
+par(mfrow = c(2,1))
+xlimits = range(sample_price50)
+hist(sample_price50, breaks = 20, xlim = xlimits, col = "blue")
+hist(sample_price150, breaks = 20, xlim = xlimits, col = "red")
+
+
