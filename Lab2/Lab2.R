@@ -29,7 +29,34 @@ summary(samp1)
 
 ### Excercise 3 -> Describe new sample
 
+mean(samp1)
+hist(samp1)
+
+### Excercise 4 -> New Sample
+
+samp2 <- sample(area, 50)
+summary(samp2)
+mean(samp2)
+hist(samp2)
 
 
+samp3 <- sample(area, 100)
+summary(samp3)
+mean(samp3)
+hist(samp3)
 
-###
+samp4 <- sample(area, 1000)
+summary(samp4)
+mean(samp4)
+hist(samp4)
+
+
+### Finding the mean 5000 times and plotting it
+sample_mean50 <- rep(0, 5000)
+for ( i in 1:5000) {
+  samp <-sample(area, 50)
+  sample_mean50[i] <- mean(samp)
+}
+hist(sample_mean50)
+
+
