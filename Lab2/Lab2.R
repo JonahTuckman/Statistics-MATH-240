@@ -72,8 +72,36 @@ for (i in 1:100){
 
 hist(sample_mean_small, breaks = 20)
   
+
+sample_means10 <- rep(0, 5000)
+sample_means100 <- rep(0, 5000)
+for (i in 1:5000) {
+  samp <- sample(area, 10)
+  sample_means10[i] <- mean(samp)
+  samp <- sample(area, 100)
+  sample_means100[i] <- mean(samp)
+}
+
+
+hist(sample_means10)
+hist(sample_means100)
   
+
+par(mfrow = c(3,1))
+xlimits = range(sample_means10)
+hist(sample_means10, breaks = 20, xlim = xlimits, col = "blue")
+hist(sample_mean50, breaks = 20, xlim = xlimits, col = "red")
+hist(sample_means100, breaks = 20, xlim = xlimits, col = "green")
   
-  
-  
-  
+ 
+### Excercise 8 
+sample_price50 <-sample(price, 50)
+hist(sample_price50)
+
+for( i in 1:5000){
+  temp <- sample(price, 50)
+  sample_price50[i] <- mean(temp)
+}
+hist(sample_price50, breaks = 20)
+
+### Excercise 9
