@@ -116,3 +116,5 @@ for(i in 1:5000){
 
 hist(sample_price150, breaks = 20)
 mean(sample_price150)
+
+
