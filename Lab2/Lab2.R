@@ -60,3 +60,20 @@ for ( i in 1:5000) {
 hist(sample_mean50)
 
 
+hist(sample_mean50, breaks = 25)
+
+
+#### Excercise 6 -> Build a for loop...
+sample_mean_small <- rep(0, 100) 
+for (i in 1:100){
+  temp <- sample(area, 50)
+  sample_mean_small[i] <- mean(temp)
+}
+
+hist(sample_mean_small, breaks = 20)
+  
+  
+  
+  
+  
+  
