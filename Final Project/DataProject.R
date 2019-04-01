@@ -1,10 +1,5 @@
 # Data Source: https://catalog.data.gov/dataset/energy-generation-by-state-and-technology-2009/resource/bb0da868-f498-4c47-b61f-da217897198f
-### Exxon: Texas 
-### Chevron: California 
-### ConnocoPhillips: Texas
-### Occidental Petroleum Company: Texas
-### Valero Industries: Texas
-### Phillips 66: Texas
+
 
 library("ggpubr")
 library("ggplot2")
