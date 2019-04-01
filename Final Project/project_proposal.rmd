@@ -1,0 +1,86 @@
+<!-- Replace below with the title of your project -->
+TITLE
+========================================================
+
+
+<!-- Replace below with your last and first name -->
+### Last Name, First Name
+
+
+
+
+
+
+Research question: 
+--------------------------------------------------------
+<!-- In one sentence, what is your research question? Enter text in the space provided below. -->
+
+blah blah blah...
+
+Data:
+--------------------------------------------------------
+
+### Data source:
+<!-- Include the citation for your data, and (if available) link to the source. -->
+
+blah blah blah...
+
+### Data collection:
+<!-- How was the data collected? -->
+
+blah blah blah...
+
+### Cases:
+<!--What are the cases (units of observation or experiment)? -->
+
+blah blah blah...
+
+### Variables:
+<!--What are the one or two variables you will be studying? What types of variables are these? -->
+
+blah blah blah...
+
+### Type of study:
+<!--Observational study or experiment? Explain. -->
+
+blah blah blah...
+
+### Scope of inference:
+<!-- Can these data be used to establish causal links and/or can findings be generalized to the population at large? -->
+
+blah blah blah...
+
+### Load data:
+<!-- Simply enter the code required to load your data in the space below. No text required. -->
+
+```{r}
+
+```
+
+### Data clean-up:
+<!-- (Optional) If you had to do any data clean up in R, you can include the code and a very brief description of your steps here. If not, you can just get rid of this section. -->
+
+blah blah blah...
+
+```{r}
+
+```
+
+Exploratory data analysis:
+--------------------------------------------------------
+<!-- Perform relevant descriptive statistics, including summary statistics and visualization of the data. Each plot or summary table shuld be accompanied by text describing what you see. Also address what the exploratory data analysis suggests about your research question. -->
+
+
+```{r}
+
+```
+
+
+
+
+
+Data:
+--------------------------------------------------------
+A one page print out of my data is attached.
+
+<!-- Do not forget to print out a page of your data and turn it in with your proposal-->
