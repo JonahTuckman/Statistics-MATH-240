@@ -1,9 +1,6 @@
-<!-- Replace below with the title of your project -->
 Is Solar Energy A Political Issue?
 ========================================================
 
-
-<!-- Replace below with your last and first name -->
 ### Tuckman, Jonah
 
 
@@ -13,7 +10,6 @@ Is Solar Energy A Political Issue?
 
 Research question:
 --------------------------------------------------------
-<!-- In one sentence, what is your research question? Enter text in the space provided below. -->
 
 I would like to attempt to understand whether there is a correlation between the emerging field of solar energy and states political alignment.
 
@@ -21,39 +17,35 @@ Data:
 --------------------------------------------------------
 
 ### Data source:
-<!-- Include the citation for your data, and (if available) link to the source. -->
+
 
 https://catalog.data.gov/dataset/energy-generation-by-state-and-technology-2009/resource/bb0da868-f498-4c47-b61f-da217897198f
 
 
 ### Data collection:
-<!-- How was the data collected? -->
 
 I pulled the data off of the government data website and then in an R file trimmed it to hold only the needs for my research. I then found election results and added them to my csv file.
 
 ### Cases:
-<!--What are the cases (units of observation or experiment)? -->
 
 The best case would be that there is a correlation between political alignment and solar energy output, ie a higher percentage of (most likely democratic) states have a positive solar output.
 
 ### Variables:
-<!--What are the one or two variables you will be studying? What types of variables are these? -->
 
-My two variables are:
-1. Solar Output: Although numerical, I am using it as a categorical, unordered variable as I am focusing on the binary question of yes solar output vs no solar output.
+My two variables are:  
+1. Solar Output: Although numerical, I am using it as a categorical, unordered variable as I am focusing on the binary question of yes solar output vs no solar output.  
 2. Political Alignment: This is a categorical unordered variable as well in a binary sense which can be either R (Republican) or D (Democrat).
 
 ### Type of study:
-<!--Observational study or experiment? Explain. -->
+
 
 This is an observational study as I am merely collecting and analyzing the data rather than running an experiment on a population.
 
 ### Scope of inference:
-<!-- Can these data be used to establish causal links and/or can findings be generalized to the population at large? -->
 
 This study will not be able to make definitive statements about the population because it is an observational study. It will, however, be able to provide information about a correlational relationship rather than a causational relationship.
 ### Load data:
-<!-- Simply enter the code required to load your data in the space below. No text required. -->
+
 
 ```{r}
 
@@ -73,7 +65,6 @@ statsData['X'] <- NULL ## Deleted unneeded column
 ```
 
 ### Data clean-up:
-<!-- (Optional) If you had to do any data clean up in R, you can include the code and a very brief description of your steps here. If not, you can just get rid of this section. -->
 
 I have shown the clean up that I did above
 
@@ -82,14 +73,15 @@ replaceCommas<-function(X){
   X<-as.numeric(gsub("\\,", "", X))
 }
 
-I also had to replace the commas in the set so they could be used as integers
+I also had to replace the commas in the set so they could be used as integers  
+
 statsData$Solar <- replaceCommas(statsData$Solar)
 
 ```
 
 Exploratory data analysis:
 --------------------------------------------------------
-<!-- Perform relevant descriptive statistics, including summary statistics and visualization of the data. Each plot or summary table should be accompanied by text describing what you see. Also address what the exploratory data analysis suggests about your research question. -->
+
 
 
 ```{r}
