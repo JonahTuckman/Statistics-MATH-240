@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 Is Solar Energy A Political Issue?
 ========================================================
 
@@ -45,7 +50,7 @@ This is an observational study as I am merely collecting and analyzing the data 
 
 This study will not be able to make definitive statements about the population because it is an observational study. It will, however, be able to provide information about a correlational relationship rather than a causational relationship.
 ### Load data:
-
+This sets the working directory and then imports my original downloaded csv dataset
 
 ```{r}
 
@@ -54,26 +59,29 @@ setwd('/Users/JonahTuckman/Desktop/Statistics/Statistics-MATH-240/Final Project'
 
 
 statsData <- read.csv('State RE Generation-Table 1.csv') ## Original dataset with many extra energy types
+
+```
+
+### Data clean-up:
+
+I also had to replace the commas in the set so they could be used as integers.
+
+```{r}
+
 neededCols <- c("State","Solar") ## Focusing on states and Solar output
 statsData <- statsData[neededCols] ## Taking only those columns stated above
+Voting <- read.csv("Voting.csv")
+statsData <- merge(statsData, Voting, by="State")
 write.csv(statsData, "SolarData.csv") ## Writing this new file
 
 
 statsData <- read.csv("SolarData.csv") ## Reading this new file
 statsData['X'] <- NULL ## Deleted unneeded column
 
-```
-
-### Data clean-up:
-
-I have shown the clean up that I did above
-
-```{r}
 replaceCommas<-function(X){
   X<-as.numeric(gsub("\\,", "", X))
 }
 
-I also had to replace the commas in the set so they could be used as integers  
 
 statsData$Solar <- replaceCommas(statsData$Solar)
 
@@ -97,6 +105,20 @@ RepSolarNum <- subset(RepData, RepData$Solar > 0)
 RepSolarPerc <-(nrow(RepSolarNum) / nrow(RepData) * 100)
 print(RepSolarPerc)
 ## 10% of Republican States have a positive solar output
+
+### Show Data
+countsRep <- table(RepData$Solar < 1, RepData$Solar > 1)
+barplot(countsRep, main="Republican Solar Usage", horiz=TRUE,
+        xlab = "Political Alignment", col = c("darkblue", "red"),
+        legend = rownames(countsRep), xlim = c(0, 30), ylim = c(0, 3))
+
+countsDem <- table(DemData$Solar < 1, DemData$Solar > 1)
+barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
+        xlab = "Political Alignment", col = c("darkblue", "red"),
+        legend = rownames(countsDem), xlim = c(0, 30), ylim = c(0, 3))
+
+
+
 ```
 
 
