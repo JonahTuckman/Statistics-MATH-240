@@ -41,7 +41,7 @@ print(demSolarPerc)
 RepSolarNum <- subset(RepData, RepData$Solar > 0)
 RepSolarPerc <-(nrow(RepSolarNum) / nrow(RepData) * 100)
 print(RepSolarPerc)
-## 10% of Republican States have a positive solar output
+## 4.34% of Republican States have a positive solar output
 
 
 ### Show Data
