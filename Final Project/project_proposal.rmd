@@ -26,10 +26,12 @@ Data:
 
 https://catalog.data.gov/dataset/energy-generation-by-state-and-technology-2009/resource/bb0da868-f498-4c47-b61f-da217897198f
 
+A 2009 study of Energy Generation by Source and State alongside the results from the 2008 general election by state. 
+
 
 ### Data collection:
 
-I pulled the data off of the government data website and then in an R file trimmed it to hold only the needs for my research. I then found election results and added them to my csv file.
+I pulled the data off of the government data website and then in an R file trimmed it to hold only the needs for my research. I then found election results from the 2008 general election and added them to a csv file and merged them into one file.
 
 ### Cases:
 
