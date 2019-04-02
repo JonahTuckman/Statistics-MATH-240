@@ -11,8 +11,11 @@ setwd('/Users/JonahTuckman/Desktop/Statistics/Statistics-MATH-240/Final Project'
 
 
 statsData <- read.csv('State RE Generation-Table 1.csv') ## Original dataset with many extra energy types
+
 neededCols <- c("State","Solar") ## Focusing on states and Solar output
 statsData <- statsData[neededCols] ## Taking only those columns stated above
+Voting <- read.csv("Voting.csv")
+statsData <- merge(statsData, Voting, by="State")
 write.csv(statsData, "SolarData.csv") ## Writing this new file
 
 
@@ -24,6 +27,8 @@ replaceCommas<-function(X){
 }
 
 statsData$Solar <- replaceCommas(statsData$Solar)
+
+
 
 RepData <- subset(statsData, statsData$Voting == 'R')
 DemData <- subset(statsData, statsData$Voting == 'D')
@@ -37,3 +42,16 @@ RepSolarNum <- subset(RepData, RepData$Solar > 0)
 RepSolarPerc <-(nrow(RepSolarNum) / nrow(RepData) * 100)
 print(RepSolarPerc)
 ## 10% of Republican States have a positive solar output
+
+
+### Show Data
+countsRep <- table(RepData$Solar < 1, RepData$Solar > 1)
+barplot(countsRep, main="Republican Solar Usage", horiz=TRUE,
+        xlab = "Political Alignment", col = c("darkblue", "red"),
+        legend = rownames(countsRep), xlim = c(0, 30), ylim = c(0, 3))
+
+countsDem <- table(DemData$Solar < 1, DemData$Solar > 1)
+barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
+        xlab = "Political Alignment", col = c("darkblue", "red"),
+        legend = rownames(countsDem), xlim = c(0, 30), ylim = c(0, 3))
+
