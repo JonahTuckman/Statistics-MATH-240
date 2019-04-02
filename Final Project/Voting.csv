@@ -8,13 +8,13 @@ Colorado,D
 Connecticut,D
 Delaware,D
 District of Columbia,D
-Florida,R
+Florida,D
 Georgia,R
 Hawaii,D
 Idaho,R
 Illinois,D
-Indiana,R
-Iowa,R
+Indiana,D
+Iowa,D
 Kansas,R
 Kentucky,R
 Louisiana,R
@@ -32,12 +32,12 @@ New Hampshire,D
 New Jersey,D
 New Mexico,D
 New York,D
-North Carolina,R
+North Carolina,D
 North Dakota,R
-Ohio,R
+Ohio,D
 Oklahoma,R
 Oregon,D
-Pennsylvania,R
+Pennsylvania,D
 Rhode Island,D
 South Carolina,R
 South Dakota,R
@@ -48,5 +48,5 @@ Vermont,D
 Virginia,D
 Washington,D
 West Virginia,R
-Wisconsin,R
+Wisconsin,D
 Wyoming,R
