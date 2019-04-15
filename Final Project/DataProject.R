@@ -77,3 +77,14 @@ print(PSolarGivenRepublican)
 
 PSolarGivenDemocrat <- nrow(demSolarNum) / nrow(DemData)
 print(PSolarGivenDemocrat)
+
+### Bayes Theorem 
+numSolarPositive <- subset(statsData, statsData$SolarPositive >0)
+pSolarPositive <- nrow(numSolarPositive)
+print(pSolarPositive)
+
+numRepublicanStates <- subset(statsData, statsData$Republican == 1)
+numRepublicanStates <- nrow(numRepublicanStates)
+print(numRepublicanStates)
+
+BayesTheorem(PSolarGivenDemocrat, PSolarGivenRepublican)
