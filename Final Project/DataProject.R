@@ -27,8 +27,10 @@ replaceCommas<-function(X){
 }
 
 statsData$Solar <- replaceCommas(statsData$Solar)
-
-
+statsData <- transform(statsData, Republican = ifelse(statsData$Voting == 'R', 1,0))
+statsData <- transform(statsData, SolarPositive = ifelse(statsData$Solar > 0, 1, 0))
+keepers <- c("State", "Republican", "SolarPositive")
+BooleanData <- statsData[keepers]
 
 RepData <- subset(statsData, statsData$Voting == 'R')
 DemData <- subset(statsData, statsData$Voting == 'D')
