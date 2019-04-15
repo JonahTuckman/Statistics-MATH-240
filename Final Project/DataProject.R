@@ -34,8 +34,6 @@ BooleanData <- statsData[keepers]
 BooleanData[is.na(BooleanData)] <- 0
 
 
-
-
 RepData <- subset(statsData, statsData$Voting == 'R')
 DemData <- subset(statsData, statsData$Voting == 'D')
 
@@ -61,3 +59,9 @@ barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
         xlab = "Political Alignment", col = c("darkblue", "red"),
         legend = rownames(countsDem), xlim = c(0, 30), ylim = c(0, 3))
 
+boxplot(statsData$Solar ~ statsData$Republican, data = statsData, main="Party Breakdwon", 
+        xlab="Republican?", ylab="Solar Output")
+
+#### Now to used combined data in plot
+boxplot(BooleanData$SolarPositive ~ BooleanData$Republican, data = BooleanData, main="Party Breakdwon", 
+        xlab="Party", ylab="Solar Output")
