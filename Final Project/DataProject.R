@@ -7,7 +7,7 @@ library("dplyr")
 library(tidyverse)
 
 
-setwd('/Users/JonahTuckman/Desktop/Statistics/Statistics-MATH-240/Final Project')
+setwd('/Users/JonahTuckman/Desktop/Spring2019/Statistics/Statistics-MATH-240/Final Project')
 
 
 statsData <- read.csv('State RE Generation-Table 1.csv') ## Original dataset with many extra energy types
