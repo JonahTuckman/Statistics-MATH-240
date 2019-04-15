@@ -65,3 +65,15 @@ boxplot(statsData$Solar ~ statsData$Republican, data = statsData, main="Party Br
 #### Now to used combined data in plot
 boxplot(BooleanData$SolarPositive ~ BooleanData$Republican, data = BooleanData, main="Party Breakdwon", 
         xlab="Party", ylab="Solar Output")
+
+barplot(BooleanData, main="Democratic Solar Usage", horiz=TRUE,
+        xlab = "Political Alignment", col = c("darkblue", "red"),
+        legend = rownames(countsDem), xlim = c(0, 30), ylim = c(0, 3))
+
+
+### Probabilities 
+PSolarGivenRepublican <-nrow(RepSolarNum) / nrow(RepData)
+print(PSolarGivenRepublican)
+
+PSolarGivenDemocrat <- nrow(demSolarNum) / nrow(DemData)
+print(PSolarGivenDemocrat)
