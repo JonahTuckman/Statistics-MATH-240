@@ -74,6 +74,24 @@ plot(me ~ p)
 
 #### Exercise 11a: 
 
+Spain2005 <- subset(atheism, atheism$nationality == "Spain" & atheism$year == "2005")
+inference(Spain2005$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist")
+
+Spain2012 <- subset(atheism, atheism$nationality == "Spain" & atheism$year == "2012")
+inference(Spain2012$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist")
+
+SpainCombined <- subset(atheism, atheism$nationality == "Spain")
+SpainCombined <- transform(SpainCombined, Sp2012 = ifelse((SpainCombined$year == "2012" & SpainCombined$response == "atheist"), 1, 0))
+SpainCombined <- transform(SpainCombined, Sp2005 = ifelse((SpainCombined$year == "2005" & SpainCombined$response == "atheist"), 1, 0))
+
+SpainMean2005 <- nrow(subset(Spain2005, Spain2005$response == "atheist")) / nrow(Spain2005)
+print(SpainMean2005)
+SpainMean2012 <- nrow(subset(Spain2012, Spain2012$response == "atheist")) / nrow(Spain2012)
+print(SpainMean2012)
+t.test(SpainCombined$Sp2012 ~ SpainCombined$Sp2005, data = SpainCombined)
+
 #### Exercise 11b: 
 
 #### Exercise 12:
