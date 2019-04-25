@@ -28,12 +28,16 @@ test = inference(y = gss$wordsum, x = gss$class, est = "mean", method = "theoret
 
 #### Load Atheism data:
 ```{r}
-athiest = read.csv("/Users/JonahTuckman/Desktop/Spring2019/Statistics/Statistics-MATH-240/Lab4/atheism.csv")
+atheism = read.csv("/Users/JonahTuckman/Desktop/Spring2019/Statistics/Statistics-MATH-240/Lab4/atheism.csv")
 ```
 
 #### Exercise 5: 
 
+## Written response
+
 #### Exercise 6: 
+
+us12 = subset(atheism, atheism$nationality == "United States" & atheism$year == "2012")
 
 #### Exercise 7:
 
