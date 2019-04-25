@@ -93,6 +93,14 @@ print(SpainMean2012)
 t.test(SpainCombined$Sp2012 ~ SpainCombined$Sp2005, data = SpainCombined)
 
 #### Exercise 11b: 
+US2012 <- subset(atheism, atheism$nationality == "United States" & atheism$year == "2012")
+inference(US2012$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist")
+
+US2005 <- subset(atheism, atheism$nationality == "Spain" & atheism$year == "2005")
+inference(US2005$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist")
+
 
 #### Exercise 12:
 
