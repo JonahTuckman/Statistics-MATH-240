@@ -105,3 +105,5 @@ inference(US2005$response, est = "proportion", type = "ci", method = "theoretica
 #### Exercise 12:
 
 #### Exercise 13:
+
+# Proportion values bellow ME 0.01 are < ~0.02 or > ~0.08
