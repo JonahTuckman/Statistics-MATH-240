@@ -52,6 +52,19 @@ inference(us12$response, est = "proportion", type = "ci", method = "theoretical"
 
 #### Exercise 9: 
 
+Aust <- subset(atheism, atheism$nationality == "Australia" & atheism$year == "2012")
+inference(Aust$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist")
+
+Afg <- subset(atheism, atheism$nationality == "Afghanistan" & atheism$year == "2012")
+inference(Afg$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist") ## Conditions not met
+
+Bulg <- subset(atheism, atheism$nationality == "Bulgaria" & atheism$year == "2012")
+inference(Bulg$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist")
+
+
 #### Exercise 10: 
 
 #### Exercise 11a: 
