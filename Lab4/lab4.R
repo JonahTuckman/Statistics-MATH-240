@@ -41,7 +41,14 @@ us12 = subset(atheism, atheism$nationality == "United States" & atheism$year == 
 
 #### Exercise 7:
 
+# Another written Response
+
+inference(us12$response, est = "proportion", type = "ci", method = "theoretical",
+          success = "atheist")
+
 #### Exercise 8:
+
+# Written response
 
 #### Exercise 9: 
 
