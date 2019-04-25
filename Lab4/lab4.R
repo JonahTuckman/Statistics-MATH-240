@@ -67,6 +67,11 @@ inference(Bulg$response, est = "proportion", type = "ci", method = "theoretical"
 
 #### Exercise 10: 
 
+n <- 1000
+p <- seq(0, 1, 0.01)
+me <- 2 * sqrt(p * (1 - p)/n)
+plot(me ~ p)
+
 #### Exercise 11a: 
 
 #### Exercise 11b: 
