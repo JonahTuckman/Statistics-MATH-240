@@ -91,7 +91,11 @@ print(numRepublicanStates)
 #### Confidence intervals 
 inference(RepData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se",
           success = 1)
-# 95 % Bootstrap interval = ( -0.0404 , 0.1313 )
+# 95 % Bootstrap interval = ( -0.0422 , 0.1331 )
 inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se",
           success = 1)
 # 95 % Bootstrap interval = ( 0.1195 , 0.4519 )
+
+### The democratic 95% confidence interval does not include 0 in the range, the republican does. 
+### This indicates that we are more confident that the democratic solar output (in a binary exploration), 
+### will be greater than 0 than we are that the republican binary exploration will. 
