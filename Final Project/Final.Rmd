@@ -130,27 +130,28 @@ print("Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )")
 
 Printing bootstrap confidence intervals because the knit is having an issue with it right now. Code works but is commented out because it will not convert to knit.  
 In this interval we see something very important. In the republican 95% confidence bootstrap interval the confidence range has a negative minumum and includes 0 in the range. Clearly our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are confident that 0 is in the range of possible values.  
-In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output. 
+In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output. Although the range also does not include 1, the data not including 0 means that the distribution is high enough that the posibility on none containing positive solar output is not included. 
 
 ```{r echo=FALSE}
 
 
 ### T Test
 
-
-
 t.test(statsData$SolarPositive ~ statsData$Republican, data = statsData)
 ### P val is less than .05 -> Reject the null. 
 ### This means that there is a significant different between republicans and democrats with solar output positive 
 
 ```
+Conditions that need to be met to perform this T-Test. 
+1. The data is a random sample from the population. -> In this case the data is taken from the general population. The Solar output and voting records are not randomly collected but are both valid in their sources of validity. 
+2. The sampling distribution is nearly normal -> It is assumed that the sampling here is nearly normal. This can be seen in the prior tests bootstrapping plots (which have not been shown based on importing error).
+3. Individual observations are independent. -> in this case I am under the assumption that states do not coordinate voting patterns (strong assumption) and that they do not coordinate solar output (medium strength assumption).
 
-
+This T Test is built by looking at the solar positivite and the Rebulcican boolean variables. The two means we are testing is the mean which indicates the probability that a solar positive value of 1 is equal to a republican value of one, in simpler terms if a state has a positive solar output, is this state republican aligned?  
+I ran this this t - test to determine if we can conclude that there is significant evidence of a factor resulting in this data, or if this output discrepincy is purely due to chance. 
+The data resulted in a t value of 2.492 and a p-value of 0.0174. This p-value is less than 0.05 thus we are able to reject the null. This means that we are able to understand that we would not be able to obtain this data if there was not some influence based on political affiliation. 
 ### Inference:
 
-Use theoretical and/or simulation methods to perform a hypothesis test, and also construct a confidence interval. If your data fails some conditions and you cannot use a theoretical method, then you should use simulation. It is your responsibility to figure out the appropriate methodology, and apply all methods that are appropriate.
-
-Don't forget to state hypotheses clearly and check conditions...
 
 ### Conclusion:
 

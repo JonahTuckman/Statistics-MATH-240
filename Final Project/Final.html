@@ -407,7 +407,7 @@ In the democrat boxplot, we see a median at 0, which means that less than 50% of
 <pre><code>## [1] &quot;Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )&quot;</code></pre>
 <p>Printing bootstrap confidence intervals because the knit is having an issue with it right now. Code works but is commented out because it will not convert to knit.<br />
 In this interval we see something very important. In the republican 95% confidence bootstrap interval the confidence range has a negative minumum and includes 0 in the range. Clearly our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are confident that 0 is in the range of possible values.<br />
-In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output.</p>
+In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output. Although the range also does not include 1, the data not including 0 means that the distribution is high enough that the posibility on none containing positive solar output is not included.</p>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -419,9 +419,9 @@ In the democrat data this is not the case, 0 is not in the range thus we are 95%
 ## sample estimates:
 ## mean in group 0 mean in group 1 
 ##      0.28571429      0.04347826</code></pre>
-</div>
-<div id="inference" class="section level3">
-<h3>Inference:</h3>
+<p>Conditions that need to be met to perform this T-Test. 1. The data is a random sample from the population. -&gt; In this case the data is taken from the general population. The Solar output and voting records are not randomly collected but are both valid in their sources of validity. 2. The sampling distribution is nearly normal -&gt; It is assumed that the sampling here is nearly normal. This can be seen in the prior tests bootstrapping plots (which have not been shown based on importing error). 3. Individual observations are independent. -&gt; in this case I am under the assumption that states do not coordinate voting patterns (strong assumption) and that they do not coordinate solar output (medium strength assumption).</p>
+<p>This T Test is built by looking at the solar positivite and the Rebulcican boolean variables. The two means we are testing is the mean which indicates the probability that a solar positive value of 1 is equal to a republican value of one, in simpler terms if a state has a positive solar output, is this state republican aligned?<br />
+I ran this this t - test to determine if we can conclude that there is significant evidence of a factor resulting in this data, or if this output discrepincy is purely due to chance. The data resulted in a t value of 2.492 and a p-value of 0.0174. This p-value is less than 0.05 thus we are able to reject the null. This means that we are able to understand that we would not be able to obtain this data if there was not some influence based on political affiliation. ### Inference:</p>
 <p>Use theoretical and/or simulation methods to perform a hypothesis test, and also construct a confidence interval. If your data fails some conditions and you cannot use a theoretical method, then you should use simulation. It is your responsibility to figure out the appropriate methodology, and apply all methods that are appropriate.</p>
 <p>Don’t forget to state hypotheses clearly and check conditions…</p>
 </div>
