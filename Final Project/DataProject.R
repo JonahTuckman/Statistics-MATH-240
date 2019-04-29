@@ -4,7 +4,8 @@
 library("ggpubr")
 library("ggplot2")
 library("dplyr")
-library(tidyverse)
+install.packages("tidystats")
+library(tidystats)
 
 
 setwd('/Users/JonahTuckman/Desktop/Spring2019/Statistics/Statistics-MATH-240/Final Project')
