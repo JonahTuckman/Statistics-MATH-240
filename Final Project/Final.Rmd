@@ -59,9 +59,7 @@ Positive aspects include limited reliance on oil (and thus foreign policy implic
 
 
 ### Data:
-
-Cohesive write-up of the data section from your proposal. Review instructions for proposal.
-
+Original Data Set:
 https://catalog.data.gov/dataset/energy-generation-by-state-and-technology-2009/resource/bb0da868-f498-4c47-b61f-da217897198f
 
 My initial data was from a 2009 study of Energy Generation by Source and State alongside the results from the 2008 general election by state. 
@@ -73,6 +71,10 @@ From here I did a variety of things to be used later including splitting into se
 ### Exploratory data analysis:
 
 Perform relevant descriptive statistics, including summary statistics and visualization of the data. Also address what the exploratory data analysis suggests about your research question.
+
+```{r echo=FALSE}
+
+```
 
 ### Inference:
 
