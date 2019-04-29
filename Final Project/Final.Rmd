@@ -220,7 +220,7 @@ After running this test I found a p-value of 2.2e-16 which is incredibly small. 
 When recreating the republican vector in my simulation, when using the probability of a republican state to have solar output (4.35%), the simulation found a mean of 1.054 states with positive solar output, which is close to the true value in the data of 1. 
 When using the probability that any state has positive solar output, the simulation found a mean of 4.090 which is much higher. This is based on the overal nation wide probability of 17% chance of finding a state with positive solar output.  
 
-Thus a further look at this data 
+Thus a further look at this data indicates that there is more to the eye than just nation wide probability of a state having positive solar output and thus we reject the null.
 
 ### Conclusion:
 
