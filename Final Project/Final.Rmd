@@ -70,8 +70,6 @@ From here I did a variety of things to be used later including splitting into se
 
 ### Exploratory data analysis:
 
-Perform relevant descriptive statistics, including summary statistics and visualization of the data. Also address what the exploratory data analysis suggests about your research question.
-
 ```{r echo=FALSE}
 
 #### Political Affiliation Positive Solar Output Percentage
@@ -83,23 +81,38 @@ RepSolarNum <- subset(RepData, RepData$Solar > 0)
 RepSolarPerc <-(nrow(RepSolarNum) / nrow(RepData) * 100)
 sprintf("Republican Positive Solar Output Percentage:  %f", RepSolarPerc)
 
+```
 
+This shows the percentage of each political party affiliated state that has a positive solar output. 
+28.57% of the democratic states have a positive solar output and only 4.35% of the republican states have a positive solar output. This shows a large difference in output based on broken groups.
+
+```{r echo=FALSE}
 ### Ploting these results
 # Barplot of Republicans
-countsRep <- table(RepData$Solar < 1, RepData$Solar > 1)
+countsRep <- table(RepData$SolarPositive == 0, RepData$SolarPositive == 1)
 barplot(countsRep, main="Republican Solar Usage", horiz=TRUE,
-        xlab = "Political Alignment", col = c("darkblue", "red"),
-        legend = rownames(countsRep), xlim = c(0, 30), ylim = c(0, 3))
+        xlab = "Number Positive",  ylab = " Positive Solar Output", col = c("darkblue", "red"),
+        legend = rownames(countsRep), xlim = c(0, 25), ylim = c(0, 3))
 
 # Barplot of Democrats
-countsDem <- table(DemData$Solar < 1, DemData$Solar > 1)
+countsDem <- table(DemData$SolarPositive == 0, DemData$SolarPositive == 1)
 barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
-        xlab = "Political Alignment", col = c("darkblue", "red"),
-        legend = rownames(countsDem), xlim = c(0, 30), ylim = c(0, 3))
+        xlab = "Number Positive", ylab = " Positive Solar Output", col = c("darkblue", "red"),
+        legend = rownames(countsDem), xlim = c(0, 25), ylim = c(0, 3))
+```
 
+In these plots we see the republican portion alongisde the democratic portion on the same horizontal range. This allows us to see the difference in internal to party breakdowns of output. We can see that within each party, a higher portion of democratic states have a positive solar output when compared to that of republican states. 
+
+```{r echo=FALSE}
 ### Boxplots of combined results, broad results because binary results but do show difference in quartiles between the two
 boxplot(BooleanData$SolarPositive ~ BooleanData$Republican, data = BooleanData, main="Party Breakdwon", 
         xlab="0 = Democrat, 1 = Republican", ylab="Solar Output")
+```
+
+Although the above boxplot is not the prettiest representation it does share something important. As we know, in a box plot the lower quartile to the upper quartile (the box) show us a range of values that encompas the 25th to the 75th quartiles. Thus this includes the median as well as the middle 50% of values.  
+In the boxplot shown above we can see that within the republican portion of this, this middle 50% and the bottom 25% (the bottom 75%) is all at the value 0. The maximum is shown at 1 which indicates that there are indeed republican states that have a positive solar output, but this also indicates that at least 75% of these republican states have no solar output.  
+In the democrat boxplot, we see a median at 0, which means that less than 50% of the democrat states have positive solar output, but we see the upper quartile at 1. This indicates that more than 25% of democrat aligned states have a positive solar output. 
+```{r echo=FALSE}
 
 ##install dependency for inference
 #install.packages("GREP2")
@@ -123,6 +136,7 @@ t.test(statsData$SolarPositive ~ statsData$Republican, data = statsData)
 ### This means that there is a significant different between republicans and democrats with solar output positive 
 
 ```
+
 
 ### Inference:
 
