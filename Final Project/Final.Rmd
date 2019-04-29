@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 <!-- Replace below with the title of your project -->
 ### Is Solar Energy A Political Issue
 
@@ -226,3 +231,5 @@ Thus a further look at this data indicates that there is more to the eye than ju
 
 Write a brief summary of your findings without repeating your statements from earlier. Also include a discussion of what you have learned about your research question and the data you collected. You should also acknowledge limitations of your study and include ideas for possible future research.
 
+
+When looking at this data, I was able to conclude that political factors do indeed affect the amount of solar output that a state sees. I can even go further and say that, based on probabilities of states containing a solar positive energy output within the groups, democrat leaning states are more likely to have this positive ouput than republican leaning states. 
