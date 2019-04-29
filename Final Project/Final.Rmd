@@ -113,6 +113,15 @@ print("Condifence intervals: ")
 print("Republican: 95 % Bootstrap interval = ( -0.0422 , 0.1331 )")
 print("Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )")
 
+
+### T Test
+
+
+
+t.test(statsData$SolarPositive ~ statsData$Republican, data = statsData)
+### P val is less than .05 -> Reject the null. 
+### This means that there is a significant different between republicans and democrats with solar output positive 
+
 ```
 
 ### Inference:
