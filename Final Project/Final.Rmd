@@ -74,6 +74,15 @@ Perform relevant descriptive statistics, including summary statistics and visual
 
 ```{r echo=FALSE}
 
+#### Political Affiliation Positive Solar Output Percentage
+demSolarNum <- subset(DemData, DemData$Solar>0)
+demSolarPerc <- (nrow(demSolarNum) / nrow(DemData) * 100)
+sprintf("Democrat Positive Solar Output Percentage:  %f", demSolarPerc)
+
+RepSolarNum <- subset(RepData, RepData$Solar > 0)
+RepSolarPerc <-(nrow(RepSolarNum) / nrow(RepData) * 100)
+sprintf("Republican Positive Solar Output Percentage:  %f", RepSolarPerc)
+
 ```
 
 ### Inference:
