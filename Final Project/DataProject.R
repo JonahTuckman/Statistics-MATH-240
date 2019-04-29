@@ -28,10 +28,17 @@ replaceCommas<-function(X){
 
 statsData$Solar <- replaceCommas(statsData$Solar)
 statsData <- transform(statsData, Republican = ifelse(statsData$Voting == 'R', 1,0))
+
+### Remove NA values
+statsData$Republican[is.na(statsData$Republican)] <- 0
+statsData$Solar[is.na(statsData$Solar)] <- 0
+
 statsData <- transform(statsData, SolarPositive = ifelse(statsData$Solar > 0, 1, 0))
 keepers <- c("State", "Republican", "SolarPositive")
 BooleanData <- statsData[keepers]
 BooleanData[is.na(BooleanData)] <- 0
+
+
 
 
 RepData <- subset(statsData, statsData$Voting == 'R')
@@ -99,3 +106,10 @@ inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation
 ### The democratic 95% confidence interval does not include 0 in the range, the republican does. 
 ### This indicates that we are more confident that the democratic solar output (in a binary exploration), 
 ### will be greater than 0 than we are that the republican binary exploration will. 
+
+
+
+
+
+### T Test
+t.test(statsData$Republican ~ statsData$SolarPositive, data = statsData)
