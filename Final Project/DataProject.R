@@ -110,6 +110,10 @@ inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation
 
 
 ### T Test
+
+### This T test tracks two groups means.
+### 1. Solar positive equaling 
+
 t.test(statsData$SolarPositive ~ statsData$Republican, data = statsData)
 ### P val is less than .05 -> Reject the null. 
 ### This means that there is a significant different between republicans and democrats with solar output positive 
