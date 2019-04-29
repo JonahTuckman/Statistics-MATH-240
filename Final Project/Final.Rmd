@@ -1,0 +1,76 @@
+<!-- Replace below with the title of your project -->
+### Is Solar Energy A Political Issue
+
+
+<!-- Replace below with your last and first name -->
+#### Tuckman, Jonah
+
+
+<!-- Enter the code required to load your data in the space below. The data will be loaded but the line of code won't show up in your write up (echo=FALSE) in order to save space-->
+```{r echo=FALSE}
+setwd('/Users/JonahTuckman/Desktop/Spring2019/Statistics/Statistics-MATH-240/Final Project')
+statsData <- read.csv('State RE Generation-Table 1.csv') ## Original dataset with many extra energy types
+neededCols <- c("State","Solar") ## Focusing on states and Solar output
+statsData <- statsData[neededCols] ## Taking only those columns stated above
+Voting <- read.csv("Voting.csv")
+statsData <- merge(statsData, Voting, by="State")
+write.csv(statsData, "SolarData.csv") ## Writing this new file
+
+
+statsData <- read.csv("SolarData.csv") ## Reading this new file
+statsData['X'] <- NULL ## Deleted unneeded column
+
+replaceCommas<-function(X){
+  X<-as.numeric(gsub("\\,", "", X))
+}
+
+statsData$Solar <- replaceCommas(statsData$Solar)
+statsData <- transform(statsData, Republican = ifelse(statsData$Voting == 'R', 1,0))
+
+### Remove NA values
+statsData$Republican[is.na(statsData$Republican)] <- 0
+statsData$Solar[is.na(statsData$Solar)] <- 0
+
+# Solar positive column
+statsData <- transform(statsData, SolarPositive = ifelse(statsData$Solar > 0, 1, 0))
+
+# New set of solely boolean data
+keepers <- c("State", "Republican", "SolarPositive")
+BooleanData <- statsData[keepers]
+BooleanData[is.na(BooleanData)] <- 0
+
+
+
+### Dataset splits based on political affiliation
+RepData <- subset(statsData, statsData$Voting == 'R')
+DemData <- subset(statsData, statsData$Voting == 'D')
+
+```
+
+<!-- In the remainder of the document, add R code chunks as needed -->
+
+### Introduction:
+
+My research question is whether or not the solar output of each state can be dictated by political afiliation. This question pivoted from the original based on a poor representation of overal data. My initial question that I hoped to explore was whether headquarter location of top 10 (in valuation) american oil companies affected state wide solar output. The hiccup I ran into when exploring this was that over 70% of these companies had their headquarters in Texas. This lead to a poor dataset as there was a low representation in other states. 
+After I realized this I pivoted my question to explore whether solar output state wide can see a correlation of 
+
+
+
+### Data:
+
+Cohesive write-up of the data section from your proposal. Review instructions for proposal.
+
+### Exploratory data analysis:
+
+Perform relevant descriptive statistics, including summary statistics and visualization of the data. Also address what the exploratory data analysis suggests about your research question.
+
+### Inference:
+
+Use theoretical and/or simulation methods to perform a hypothesis test, and also construct a confidence interval. If your data fails some conditions and you cannot use a theoretical method, then you should use simulation. It is your responsibility to figure out the appropriate methodology, and apply all methods that are appropriate.
+
+Don't forget to state hypotheses clearly and check conditions...
+
+### Conclusion:
+
+Write a brief summary of your findings without repeating your statements from earlier. Also include a discussion of what you have learned about your research question and the data you collected. You should also acknowledge limitations of your study and include ideas for possible future research.
+
