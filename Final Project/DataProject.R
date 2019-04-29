@@ -109,7 +109,7 @@ inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation
 
 
 
-
-
 ### T Test
-t.test(statsData$Republican ~ statsData$SolarPositive, data = statsData)
+t.test(statsData$SolarPositive ~ statsData$Republican, data = statsData)
+### P val is less than .05 -> Reject the null. 
+### This means that there is a significant different between republicans and democrats with solar output positive 
