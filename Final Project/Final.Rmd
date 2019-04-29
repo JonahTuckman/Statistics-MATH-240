@@ -83,6 +83,26 @@ RepSolarNum <- subset(RepData, RepData$Solar > 0)
 RepSolarPerc <-(nrow(RepSolarNum) / nrow(RepData) * 100)
 sprintf("Republican Positive Solar Output Percentage:  %f", RepSolarPerc)
 
+
+### Ploting these results
+# Barplot of Republicans
+countsRep <- table(RepData$Solar < 1, RepData$Solar > 1)
+barplot(countsRep, main="Republican Solar Usage", horiz=TRUE,
+        xlab = "Political Alignment", col = c("darkblue", "red"),
+        legend = rownames(countsRep), xlim = c(0, 30), ylim = c(0, 3))
+
+# Barplot of Democrats
+countsDem <- table(DemData$Solar < 1, DemData$Solar > 1)
+barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
+        xlab = "Political Alignment", col = c("darkblue", "red"),
+        legend = rownames(countsDem), xlim = c(0, 30), ylim = c(0, 3))
+
+### Boxplots of combined results, broad results because binary results but do show difference in quartiles between the two
+boxplot(BooleanData$SolarPositive ~ BooleanData$Republican, data = BooleanData, main="Party Breakdwon", 
+        xlab="0 = Democrat, 1 = Republican", ylab="Solar Output")
+
+
+
 ```
 
 ### Inference:
