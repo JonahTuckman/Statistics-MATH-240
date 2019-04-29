@@ -87,4 +87,11 @@ numRepublicanStates <- subset(statsData, statsData$Republican == 1)
 numRepublicanStates <- nrow(numRepublicanStates)
 print(numRepublicanStates)
 
-BayesTheorem(PSolarGivenDemocrat, PSolarGivenRepublican)
+
+#### Confidence intervals 
+inference(RepData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se",
+          success = 1)
+# 95 % Bootstrap interval = ( -0.0404 , 0.1313 )
+inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se",
+          success = 1)
+# 95 % Bootstrap interval = ( 0.1195 , 0.4519 )
