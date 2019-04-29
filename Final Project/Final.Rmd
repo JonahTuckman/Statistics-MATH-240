@@ -12,6 +12,7 @@ setwd('/Users/JonahTuckman/Desktop/Spring2019/Statistics/Statistics-MATH-240/Fin
 statsData <- read.csv('State RE Generation-Table 1.csv') ## Original dataset with many extra energy types
 neededCols <- c("State","Solar") ## Focusing on states and Solar output
 statsData <- statsData[neededCols] ## Taking only those columns stated above
+## Merging voting history 
 Voting <- read.csv("Voting.csv")
 statsData <- merge(statsData, Voting, by="State")
 write.csv(statsData, "SolarData.csv") ## Writing this new file
@@ -60,6 +61,14 @@ Positive aspects include limited reliance on oil (and thus foreign policy implic
 ### Data:
 
 Cohesive write-up of the data section from your proposal. Review instructions for proposal.
+
+https://catalog.data.gov/dataset/energy-generation-by-state-and-technology-2009/resource/bb0da868-f498-4c47-b61f-da217897198f
+
+My initial data was from a 2009 study of Energy Generation by Source and State alongside the results from the 2008 general election by state. 
+I initially sliced this Energy Generation csv in order to solely include State and Solar output. This dataset includes all types of energy output (Coal, petrolium, solar, wind, etc) but I decided to limit this study to solely solar output. A thought I had for a later extension of this project would be to broaden the exploration and create a boolean variable for all renewable energy output. This would encompass states who have a positive renewable output that does not include solar, thus making our exploration more accurate. 
+Once I had a set of States and Solar output, I pulled data of voting records and merged this into the current dataset by state name. Now my data includes State, Voting History, and Solar output. 
+From here I did a variety of things to be used later including splitting into seperate Democratic and Republican sets, adding a boolean variable of Solar Positivity to the original set and adding a boolean variable of Republican to the original set. 
+
 
 ### Exploratory data analysis:
 
