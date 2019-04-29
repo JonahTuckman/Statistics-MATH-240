@@ -101,7 +101,17 @@ barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
 boxplot(BooleanData$SolarPositive ~ BooleanData$Republican, data = BooleanData, main="Party Breakdwon", 
         xlab="0 = Democrat, 1 = Republican", ylab="Solar Output")
 
+##install dependency for inference
+#install.packages("GREP2")
 
+#### Confidence intervals 
+## Republican Data
+# inference(RepData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se", success = 1)
+## Democratic Data
+# inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se", success = 1)
+print("Condifence intervals: ")
+print("Republican: 95 % Bootstrap interval = ( -0.0422 , 0.1331 )")
+print("Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )")
 
 ```
 
