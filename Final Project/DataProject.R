@@ -38,7 +38,8 @@ statsData <- transform(statsData, SolarPositive = ifelse(statsData$Solar > 0, 1,
 keepers <- c("State", "Republican", "SolarPositive")
 BooleanData <- statsData[keepers]
 BooleanData[is.na(BooleanData)] <- 0
-
+statsData <- transform(statsData, SolarAndRep = ifelse(statsData$Republican == 1 & statsData$SolarPositive == 1, 1, 0))
+statsData <- transform(statsData, SolarAndDem = ifelse(statsData$Republican == 0 & statsData$SolarPositive == 1, 1, 0))
 
 
 
