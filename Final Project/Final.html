@@ -393,7 +393,6 @@ $(document).ready(function () {
 </div>
 <div id="exploratory-data-analysis" class="section level3">
 <h3>Exploratory data analysis:</h3>
-<p>Perform relevant descriptive statistics, including summary statistics and visualization of the data. Also address what the exploratory data analysis suggests about your research question.</p>
 <pre><code>## [1] &quot;Democrat Positive Solar Output Percentage:  28.571429&quot;</code></pre>
 <pre><code>## [1] &quot;Republican Positive Solar Output Percentage:  4.347826&quot;</code></pre>
 <p>This shows the percentage of each political party affiliated state that has a positive solar output. 28.57% of the democratic states have a positive solar output and only 4.35% of the republican states have a positive solar output. This shows a large difference in output based on broken groups.</p>
@@ -406,6 +405,9 @@ In the democrat boxplot, we see a median at 0, which means that less than 50% of
 <pre><code>## [1] &quot;Condifence intervals: &quot;</code></pre>
 <pre><code>## [1] &quot;Republican: 95 % Bootstrap interval = ( -0.0422 , 0.1331 )&quot;</code></pre>
 <pre><code>## [1] &quot;Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )&quot;</code></pre>
+<p>Printing bootstrap confidence intervals because the knit is having an issue with it right now. Code works but is commented out because it will not convert to knit.<br />
+In this interval we see something very important. In the republican 95% confidence bootstrap interval the confidence range has a negative minumum and includes 0 in the range. Clearly our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are confident that 0 is in the range of possible values.<br />
+In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output.</p>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
