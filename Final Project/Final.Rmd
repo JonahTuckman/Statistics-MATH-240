@@ -52,7 +52,8 @@ DemData <- subset(statsData, statsData$Voting == 'D')
 ### Introduction:
 
 My research question is whether or not the solar output of each state can be dictated by political afiliation. This question pivoted from the original based on a poor representation of overal data. My initial question that I hoped to explore was whether headquarter location of top 10 (in valuation) american oil companies affected state wide solar output. The hiccup I ran into when exploring this was that over 70% of these companies had their headquarters in Texas. This lead to a poor dataset as there was a low representation in other states. 
-After I realized this I pivoted my question to explore whether solar output state wide can see a correlation of 
+After I realized this I pivoted my question to explore whether solar output state wide can see a correlation between positive output and political voting patterns. This is an interesting question because the idea of solar energy is one that is globaly impactful for all states and people, independent of political affiliation. 
+Positive aspects include limited reliance on oil (and thus foreign policy implications as the US needs to send less soldiers to wars fought over dictating oil rich regions), climate change reduction (the fossil fuel emissions would be limited if cars, trains, planes and more were running off of solar power rather than currently harmful tendencies), fiscal advantages (government stipends for those who opt into a switch into renewable energy) and many more. I found interest in this question after deciding to work for a company over the summer who works towards using Artificial Inteligence to advance the output and profitability of solar fields. Once understanding this aspect of solar energy I began to wonder whether the aspects still holding us back could be political. 
 
 
 
