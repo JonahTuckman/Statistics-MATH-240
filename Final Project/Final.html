@@ -421,9 +421,25 @@ In the democrat data this is not the case, 0 is not in the range thus we are 95%
 ##      0.28571429      0.04347826</code></pre>
 <p>Conditions that need to be met to perform this T-Test. 1. The data is a random sample from the population. -&gt; In this case the data is taken from the general population. The Solar output and voting records are not randomly collected but are both valid in their sources of validity. 2. The sampling distribution is nearly normal -&gt; It is assumed that the sampling here is nearly normal. This can be seen in the prior tests bootstrapping plots (which have not been shown based on importing error). 3. Individual observations are independent. -&gt; in this case I am under the assumption that states do not coordinate voting patterns (strong assumption) and that they do not coordinate solar output (medium strength assumption).</p>
 <p>This T Test is built by looking at the solar positivite and the Rebulcican boolean variables. The two means we are testing is the mean which indicates the probability that a solar positive value of 1 is equal to a republican value of one, in simpler terms if a state has a positive solar output, is this state republican aligned?<br />
-I ran this this t - test to determine if we can conclude that there is significant evidence of a factor resulting in this data, or if this output discrepincy is purely due to chance. The data resulted in a t value of 2.492 and a p-value of 0.0174. This p-value is less than 0.05 thus we are able to reject the null. This means that we are able to understand that we would not be able to obtain this data if there was not some influence based on political affiliation. ### Inference:</p>
-<p>Use theoretical and/or simulation methods to perform a hypothesis test, and also construct a confidence interval. If your data fails some conditions and you cannot use a theoretical method, then you should use simulation. It is your responsibility to figure out the appropriate methodology, and apply all methods that are appropriate.</p>
-<p>Don’t forget to state hypotheses clearly and check conditions…</p>
+I ran this this t - test to determine if we can conclude that there is significant evidence of a factor resulting in this data, or if this output discrepincy is purely due to chance. The data resulted in a t value of 2.492 and a p-value of 0.0174. This p-value is less than 0.05 thus we are able to reject the null. This means that we are able to understand that we would not be able to obtain this data if there was not some influence based on political affiliation.</p>
+</div>
+<div id="inference" class="section level3">
+<h3>Inference:</h3>
+<p>Goal: To simulate the Republican portion of the data (23 states) and use null and alternative probabilities and count the number of solar positive occurences.</p>
+<p>Null Hypothesis: H0 &lt;- The probability that a state in our republican simulation will have a positive solar output is 9/51 (the overall probability of all states excluding political factors). This would mean that we could reasonably get this data with no information concerning the states political history.<br />
+Alternative Hypothesis: HA &lt;- The probability that a state has a positive solar output is 4.25% which is the probability that a republican state would have positive solar output.<br />
+When recreating vectors the size of the total republican states, we are simulating our data vs the null hypothesis.</p>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  newFrame$nullValsVec and newFrame$testValsVec
+## t = 47.873, df = 1523.8, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  3.017098 3.274902
+## sample estimates:
+## mean of x mean of y 
+##     4.160     1.014</code></pre>
 </div>
 <div id="conclusion" class="section level3">
 <h3>Conclusion:</h3>

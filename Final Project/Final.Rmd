@@ -150,8 +150,77 @@ Conditions that need to be met to perform this T-Test.
 This T Test is built by looking at the solar positivite and the Rebulcican boolean variables. The two means we are testing is the mean which indicates the probability that a solar positive value of 1 is equal to a republican value of one, in simpler terms if a state has a positive solar output, is this state republican aligned?  
 I ran this this t - test to determine if we can conclude that there is significant evidence of a factor resulting in this data, or if this output discrepincy is purely due to chance. 
 The data resulted in a t value of 2.492 and a p-value of 0.0174. This p-value is less than 0.05 thus we are able to reject the null. This means that we are able to understand that we would not be able to obtain this data if there was not some influence based on political affiliation. 
+
 ### Inference:
 
+Goal: To simulate the Republican portion of the data (23 states) and use null and alternative probabilities and count the number of solar positive occurences. 
+
+Null Hypothesis: H0 <- The probability that a state in our republican simulation will have a positive solar output is 9/51 (the overall probability of all states excluding political factors). This would mean that we could reasonably get this data with no information concerning the states political history.  
+Alternative Hypothesis: HA <- The probability that a state has a positive solar output is 4.25% which is the probability that a republican state would have positive solar output.   
+When recreating vectors the size of the total republican states, we are simulating our data vs the null hypothesis.
+
+```{r echo=FALSE}
+
+
+### ALT HYP -> There is something going on so the probability is not 9/51 if they have or do not have solar output.
+
+
+## Count number of 1's in simulation
+simulationCount <- function(){
+  ### Simulation of 1's and 0's with same probability as Republican Solar Positive
+  ### Simulating republican states with known republican probability
+  sim = sample(c(0,1), size=23, replace=TRUE, prob=c(0.9565,0.0435))
+  
+  simCount = 0
+  for (j in sim) {
+    if(j == 1){
+      simCount = simCount + 1;
+    }
+  }
+  return(simCount);
+}
+
+## Run this simulation 1000 times and add the number of 1's in each to a vector
+testValsVec <- vector()
+for (i in 0:999) {
+  val = simulationCount()
+  testValsVec <- c(testValsVec, val)
+}
+
+### Null hypothosis test: there are 9 states out of 51 that have solar output positive so the probability that a state has this is independent of political party and is 9/51
+
+simulationCountNull <- function(){
+  ### Simulation of 1's and 0's with same probability as Republican Solar Positive
+    ### Simulating republican states with general solar probability
+  sim2 = sample(c(0,1), size=23, replace=TRUE, prob=c(0.8235,.1765))
+  simCount2 = 0
+  for (j in sim2) {
+    if(j == 1){
+      simCount2 = simCount2 + 1;
+    }
+  }
+  return(simCount2);
+}
+
+nullValsVec <- vector()
+  for (i in 0:999) {
+    val2 = simulationCountNull()
+    nullValsVec <- c(nullValsVec, val2)
+  }
+
+newFrame <- data.frame(nullValsVec,testValsVec)
+
+### Compare these two vectors
+t.test(newFrame$nullValsVec, newFrame$testValsVec, data=newFrame)
+
+```
+
+After simulating two vectors 1000 times with the null probability (the probability a republican state would have positive solar output independent of political alignment) and the alternative probability (the probability that a republican state would have positive solar output given it's political view), I ran a T-Test on these two vectors to find whether or not the null can be accepted.  
+After running this test I found a p-value of 2.2e-16 which is incredibly small. This would lead me to reject the null hypothesis and state that we are able to understand that this data could not be found solely based on the probability of positve solar output state wide. It is not enough to know the number of states who have solar output and use this probability in recreating the data, we also have to understand more factors, which in this case, is the political alignment.  
+When recreating the republican vector in my simulation, when using the probability of a republican state to have solar output (4.35%), the simulation found a mean of 1.054 states with positive solar output, which is close to the true value in the data of 1. 
+When using the probability that any state has positive solar output, the simulation found a mean of 4.090 which is much higher. This is based on the overal nation wide probability of 17% chance of finding a state with positive solar output.  
+
+Thus a further look at this data 
 
 ### Conclusion:
 
