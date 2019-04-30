@@ -77,6 +77,8 @@ From here I did a variety of things to be used later including splitting into se
 
 ### Exploratory data analysis:
 
+
+##### Party Distribution Percentages
 ```{r echo=FALSE}
 
 #### Political Affiliation Positive Solar Output Percentage
@@ -93,6 +95,7 @@ sprintf("Republican Positive Solar Output Percentage:  %f", RepSolarPerc)
 This shows the percentage of each political party affiliated state that has a positive solar output. 
 28.57% of the democratic states have a positive solar output and only 4.35% of the republican states have a positive solar output. This shows a large difference in output based on broken groups.
 
+##### Party Distribution Barplot
 ```{r echo=FALSE}
 ### Ploting these results
 # Barplot of Republicans
@@ -110,6 +113,7 @@ barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
 
 In these plots we see the republican portion alongisde the democratic portion on the same horizontal range. This allows us to see the difference in internal to party breakdowns of output. We can see that within each party, a higher portion of democratic states have a positive solar output when compared to that of republican states. 
 
+##### Party Split Boxplot
 ```{r echo=FALSE}
 ### Boxplots of combined results, broad results because binary results but do show difference in quartiles between the two
 boxplot(BooleanData$SolarPositive ~ BooleanData$Republican, data = BooleanData, main="Party Breakdwon", 
@@ -120,6 +124,7 @@ Although the above boxplot is not the prettiest representation it does share som
 In the boxplot shown above we can see that within the republican portion of this, this middle 50% and the bottom 25% (the bottom 75%) is all at the value 0. The maximum is shown at 1 which indicates that there are indeed republican states that have a positive solar output, but this also indicates that at least 75% of these republican states have no solar output.  
 In the democrat boxplot, we see a median at 0, which means that less than 50% of the democrat states have positive solar output, but we see the upper quartile at 1. This indicates that more than 25% of democrat aligned states have a positive solar output. 
 
+##### Inferences For Parties
 ```{r echo=FALSE}
 
 #### Confidence intervals 
@@ -135,6 +140,7 @@ print("Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )")
 In the republican 95% confidence bootstrap interval the confidence range has a negative minumum and includes 0 in the range. Clearly our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are confident that 0 is in the range of possible values.  
 In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output. Although the range also does not include 1, the data not including 0 means that the distribution is high enough that the posibility on none containing positive solar output is not included. 
 
+##### SolarPositive ~ Republican T Test
 ```{r echo=FALSE}
 
 
@@ -162,6 +168,7 @@ Null Hypothesis: H0 <- The probability that a state in our republican simulation
 Alternative Hypothesis: HA <- The probability that a state has a positive solar output is 4.25% which is the probability that a republican state would have positive solar output.   
 When recreating vectors the size of the total republican states, we are simulating our data vs the null hypothesis.
 
+##### Simulation and T-Test
 ```{r echo=FALSE}
 
 
