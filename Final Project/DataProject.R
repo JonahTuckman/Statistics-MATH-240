@@ -114,7 +114,53 @@ inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation
 ### T Test
 
 
+### ALT HYP -> There is something going on so the probability is not 9/51 if they have or do not have solar output.
 
-t.test(statsData$SolarPositive ~ statsData$Republican, data = statsData)
-### P val is less than .05 -> Reject the null. 
-### This means that there is a significant different between republicans and democrats with solar output positive 
+
+## Count number of 1's in simulation
+simulationCount <- function(){
+  ### Simulation of 1's and 0's with same probability as Republican Solar Positive
+  ### Simulating republican states with known republican probability
+  sim = sample(c(0,1), size=23, replace=TRUE, prob=c(0.9565,0.0435))
+  
+  simCount = 0
+  for (j in sim) {
+    if(j == 1){
+      simCount = simCount + 1;
+    }
+  }
+  return(simCount);
+}
+
+## Run this simulation 1000 times and add the number of 1's in each to a vector
+testValsVec <- vector()
+for (i in 0:999) {
+  val = simulationCount()
+  testValsVec <- c(testValsVec, val)
+}
+
+### Null hypothosis test: there are 9 states out of 51 that have solar output positive so the probability that a state has this is independent of political party and is 9/51
+
+simulationCountNull <- function(){
+  ### Simulation of 1's and 0's with same probability as Republican Solar Positive
+  ### Simulating republican states with general solar probability
+  sim2 = sample(c(0,1), size=23, replace=TRUE, prob=c(0.8235,.1765))
+  simCount2 = 0
+  for (j in sim2) {
+    if(j == 1){
+      simCount2 = simCount2 + 1;
+    }
+  }
+  return(simCount2);
+}
+
+nullValsVec <- vector()
+for (i in 0:999) {
+  val2 = simulationCountNull()
+  nullValsVec <- c(nullValsVec, val2)
+}
+
+newFrame <- data.frame(nullValsVec,testValsVec)
+
+### Compare these two vectors
+t.test(newFrame$nullValsVec, newFrame$testValsVec, data=newFrame)
