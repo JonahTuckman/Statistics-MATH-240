@@ -13,6 +13,8 @@ output:
 
 <!-- Enter the code required to load your data in the space below. The data will be loaded but the line of code won't show up in your write up (echo=FALSE) in order to save space-->
 ```{r echo=FALSE}
+load(url('http://s3.amazonaws.com/assets.datacamp.com/course/dasi/inference.Rdata'))
+
 setwd('/Users/JonahTuckman/Desktop/Spring2019/Statistics/Statistics-MATH-240/Final Project')
 statsData <- read.csv('State RE Generation-Table 1.csv') ## Original dataset with many extra energy types
 neededCols <- c("State","Solar") ## Focusing on states and Solar output
@@ -120,21 +122,17 @@ In the democrat boxplot, we see a median at 0, which means that less than 50% of
 
 ```{r echo=FALSE}
 
-##install dependency for inference
-#install.packages("GREP2")
-
 #### Confidence intervals 
 ## Republican Data
-# inference(RepData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se", success = 1)
+inference(RepData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se", success = 1)
 ## Democratic Data
-# inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se", success = 1)
+inference(DemData$SolarPositive, type = "ci", est = "mean", method = "simulation", boot_method = "se", success = 1)
 print("Condifence intervals: ")
 print("Republican: 95 % Bootstrap interval = ( -0.0422 , 0.1331 )")
 print("Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )")
 ```
 
-Printing bootstrap confidence intervals because the knit is having an issue with it right now. Code works but is commented out because it will not convert to knit.  
-In this interval we see something very important. In the republican 95% confidence bootstrap interval the confidence range has a negative minumum and includes 0 in the range. Clearly our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are confident that 0 is in the range of possible values.  
+In the republican 95% confidence bootstrap interval the confidence range has a negative minumum and includes 0 in the range. Clearly our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are confident that 0 is in the range of possible values.  
 In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output. Although the range also does not include 1, the data not including 0 means that the distribution is high enough that the posibility on none containing positive solar output is not included. 
 
 ```{r echo=FALSE}
