@@ -94,7 +94,7 @@ sprintf("Republican Positive Solar Output Percentage:  %f", RepSolarPerc)
 ```
 
 This shows the percentage of each political party affiliated state that has a positive solar output. 
-28.57% of the democratic states have a positive solar output and only 4.35% of the republican states have a positive solar output. This shows a large difference in output based on broken groups.
+28.57% of the democratic states have a positive solar output and only 4.35% of the Republican states have a positive solar output. This shows a large difference in output based on broken groups.
 
 ##### Party Distribution Barplot
 ```{r echo=FALSE}
@@ -112,7 +112,7 @@ barplot(countsDem, main="Democratic Solar Usage", horiz=TRUE,
         legend = rownames(countsDem), xlim = c(0, 25), ylim = c(0, 3))
 ```
 
-In these plots we see the republican portion alongisde the democratic portion on the same horizontal range. This allows us to see the difference in internal to party breakdowns of output. We can see that within each party, a higher portion of democratic states have a positive solar output when compared to that of republican states. 
+In these plots, we see the republican portion alongside the democratic portion on the same horizontal range. This allows us to see the difference in internal to party breakdowns of solar output. We can see that within each party, a higher portion of democratic states have a positive solar output when compared to that of Republican states. 
 
 ##### Party Split Boxplot
 ```{r echo=FALSE}
@@ -121,8 +121,8 @@ boxplot(BooleanData$SolarPositive ~ BooleanData$Republican, data = BooleanData, 
         xlab="0 = Democrat, 1 = Republican", ylab="Solar Output")
 ```
 
-Although the above boxplot is not the prettiest representation it does share something important. As we know, in a box plot the lower quartile to the upper quartile (the box) show us a range of values that encompas the 25th to the 75th quartiles. Thus this includes the median as well as the middle 50% of values.  
-In the boxplot shown above we can see that within the republican portion of this, this middle 50% and the bottom 25% (the bottom 75%) is all at the value 0. The maximum is shown at 1 which indicates that there are indeed republican states that have a positive solar output, but this also indicates that at least 75% of these republican states have no solar output.  
+Although the above boxplot is not the prettiest representation, it does share something important. As we know, in a box plot the lower quartile to the upper quartile (the box) shows us a range of values that encompasses the 25th to the 75th quartiles. Thus this includes the median as well as the middle 50% of values.    
+In the boxplot shown above we can see that within the Republican portion of this, this middle 50% and the bottom 25% (the bottom 75%) is all at the value 0. The maximum is shown at 1 which indicates that there are indeed republican states that have a positive solar output, but this also indicates that at least 75% of these Republican states have no solar output.  
 In the democrat boxplot, we see a median at 0, which means that less than 50% of the democrat states have positive solar output, but we see the upper quartile at 1. This indicates that more than 25% of democrat aligned states have a positive solar output. 
 
 ##### Inferences For Parties
@@ -138,8 +138,9 @@ print("Republican: 95 % Bootstrap interval = ( -0.0422 , 0.1331 )")
 print("Democrat: 95 % Bootstrap interval = ( 0.1195 , 0.4519 )")
 ```
 
-In the republican 95% confidence bootstrap interval the confidence range has a negative minumum and includes 0 in the range. Clearly our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are confident that 0 is in the range of possible values.  
-In the democrat data this is not the case, 0 is not in the range thus we are 95% confident that the response is not that there are 0 states with positive output. Although the range also does not include 1, the data not including 0 means that the distribution is high enough that the posibility on none containing positive solar output is not included. 
+In the republican 95% confidence bootstrap interval the confidence range has a negative minimum and includes 0 in the range. Clearly, our data could not be negative considering they are boolean responses, but the fact that 0 is included is very important as it shows that we are 95% confident that 0 is in the range of possible values for the mean of Republican Leaning States.  
+In the democrat data, this is not the case, 0 is not in the range thus we are 95% confident that the mean number of democrat leaning states with positive solar output is not 0. Although the range also does not include 1 meaning that we are also confident that not every democrat leaning state has positive solar output.  
+Our takeaway from this is that, in a 95% confidence interval, we can use this confidence to state it is possible for no Republican-leaning states to have a positive solar output, and not possible that no democrat leaning states have a positive solar output. 
 
 ##### SolarPositive ~ Republican T Test
 ```{r echo=FALSE}
@@ -153,13 +154,13 @@ t.test(statsData$SolarPositive ~ statsData$Republican, data = statsData)
 
 ```
 Conditions that need to be met to perform this T-Test. 
-1. The data is a random sample from the population. -> In this case the data is taken from the general population. The Solar output and voting records are not randomly collected but are both valid in their sources of validity. 
-2. The sampling distribution is nearly normal -> It is assumed that the sampling here is nearly normal. This can be seen in the prior tests bootstrapping plots (which have not been shown based on importing error).
-3. Individual observations are independent. -> in this case I am under the assumption that states do not coordinate voting patterns (strong assumption) and that they do not coordinate solar output (medium strength assumption).
+1. The data is a random sample from the population. -> In this case the data is taken from the general population. The Solar output and voting records are not randomly collected but are both valid in their sources of collection. 
+2. The sampling distribution is nearly normal -> It is assumed that the sampling here is nearly normal. This can be seen in the prior tests of bootstrapping plots.  
+3. Individual observations are independent. -> In this case I am under the assumption that states do not coordinate voting patterns (a strong assumption) and that they do not coordinate solar output (medium strength assumption).
 
-This T Test is built by looking at the solar positivite and the Rebulcican boolean variables. The two means we are testing is the mean which indicates the probability that a solar positive value of 1 is equal to a republican value of one, in simpler terms if a state has a positive solar output, is this state republican aligned?  
-I ran this this t - test to determine if we can conclude that there is significant evidence of a factor resulting in this data, or if this output discrepincy is purely due to chance. 
-The data resulted in a t value of 2.492 and a p-value of 0.0174. This p-value is less than 0.05 thus we are able to reject the null. This means that we are able to understand that we would not be able to obtain this data if there was not some influence based on political affiliation. 
+This T-Test is built by looking at the solar positive and the Republican boolean variables. The two means we are testing is the mean which indicates the probability that a solar positive value of 1 is equal to a Republican value of one, in simpler terms if a state has a positive solar output, is this state Republican-aligned?  
+I ran this T-Test to determine if we can conclude that there is significant evidence of a factor resulting in this data, or if this output discrepancy is purely due to chance. 
+The data resulted in a T-Value of 2.492 and a P-Value of 0.0174. This p-value is less than 0.05 thus we are able to reject the null. This means that we are able to understand that we would not be able to obtain this data if there was not some influence based on an external factor, in this case, political affiliation. 
 
 ### Inference:
 
