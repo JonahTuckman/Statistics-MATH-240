@@ -164,11 +164,13 @@ The data resulted in a T-Value of 2.492 and a P-Value of 0.0174. This p-value is
 
 ### Inference:
 
-Goal: To simulate the Republican portion of the data (23 states) and use null and alternative probabilities and count the number of solar positive occurences. 
+Goal: To simulate the Republican portion of the data (23 states) and use null and alternative probabilities within their respective tests and count the number of solar positive occurrences.  
 
-Null Hypothesis: H0 <- The probability that a state in our republican simulation will have a positive solar output is 9/51 (the overall probability of all states excluding political factors). This would mean that we could reasonably get this data with no information concerning the states political history.  
-Alternative Hypothesis: HA <- The probability that a state has a positive solar output is 4.25% which is the probability that a republican state would have positive solar output.   
-When recreating vectors the size of the total republican states, we are simulating our data vs the null hypothesis.
+Null Hypothesis: H0 <- The probability that a state in our Republican simulation will have a positive solar output is 9/51 (the overall probability of all states excluding political factors). This would mean that we could reasonably get this data with no information concerning the states political history.   
+
+Alternative Hypothesis: HA <- The probability that a state has a positive solar output is 4.25% (1/23) which is the overall probability that a state has a positive solar output given it is Republican.   
+
+When recreating vectors the size of the total Republican states, we are simulating our data vs the null hypothesis.
 
 ##### Simulation and T-Test
 ```{r echo=FALSE}
@@ -227,16 +229,24 @@ t.test(newFrame$nullValsVec, newFrame$testValsVec, data=newFrame)
 
 ```
 
-After simulating two vectors 1000 times with the null probability (the probability a republican state would have positive solar output independent of political alignment) and the alternative probability (the probability that a republican state would have positive solar output given it's political view), I ran a T-Test on these two vectors to find whether or not the null can be accepted.  
-After running this test I found a p-value of 2.2e-16 which is incredibly small. This would lead me to reject the null hypothesis and state that we are able to understand that this data could not be found solely based on the probability of positve solar output state wide. It is not enough to know the number of states who have solar output and use this probability in recreating the data, we also have to understand more factors, which in this case, is the political alignment.  
-When recreating the republican vector in my simulation, when using the probability of a republican state to have solar output (4.35%), the simulation found a mean of 1.054 states with positive solar output, which is close to the true value in the data of 1. 
-When using the probability that any state has positive solar output, the simulation found a mean of 4.090 which is much higher. This is based on the overal nation wide probability of 17% chance of finding a state with positive solar output.  
+After simulating two vectors 1000 times with the null probability (the probability a Republican state would have positive solar output independent of political alignment) and the alternative probability (the probability that a Republican state would have positive solar output given its political view), I ran a T-Test on these two vectors to find whether or not the null can be accepted.   
+After running this test I found a p-value of 2.2e-16 which is incredibly small. This would lead me to reject the null hypothesis and state that we are able to understand that this data could not be found solely based on the probability of positive solar output statewide. It is not enough to know the number of states who have solar output and use this probability in recreating the data, we also have to understand more factors, which in this case, is the political alignment.   
+When recreating the republican vector in my simulation, using the probability of a Republican state to have a solar output (4.35%), the simulation found a mean of 1.054 states with positive solar output, which is close to the true value in the data of 1. 
+When using the probability that any state has positive solar output, the simulation found a mean of 4.090 which is much higher than that found using solely Republican probability information. This is based on the overall nationwide probability of 17% chance of finding a state with positive solar output.  
 
-Thus a further look at this data indicates that there is more to the eye than just nation wide probability of a state having positive solar output and thus we reject the null.
+Thus a further look at this data indicates that there is more to the eye than just nationwide probability of a state having positive solar output and thus we reject the null.
 
 ### Conclusion:
 
 Write a brief summary of your findings without repeating your statements from earlier. Also include a discussion of what you have learned about your research question and the data you collected. You should also acknowledge limitations of your study and include ideas for possible future research.
 
 
-When looking at this data, I was able to conclude that political factors do indeed affect the amount of solar output that a state sees. I can even go further and say that, based on probabilities of states containing a solar positive energy output within the groups, democrat leaning states are more likely to have this positive ouput than republican leaning states. 
+When looking at this data, I was able to conclude that political factors, or some other unseen factor, do indeed affect the amount of solar output that a state sees. I can even go further and say that, based on probabilities of states containing a solar positive energy output within the groups, the data shows that democrat leaning states are more likely to have this positive output than republican leaning states.  
+
+When doing these tests I learned that, although solar energy has wide positivies for all, there are political issues that are holding it back from widespread use nationwide. Within this understanding I was also able to learn the beauty the data exploration presents us with. I began this project with a question thought of while reading an unrelated article about solar energy. I read about the ways the solar field was changing and the good it could do for the world, and my mind brought me to the question 'Why is this not happening faster?'. Through data exploration I was able to build a model that not only wondered the same thing, but proved a possible reasoning and shared factual evidence that there was indeed a valid quesiton to be asked.  
+
+I believe that the solar industry, alongside a grouping of other renewables, will revolutionize how the world uses energy. This shift will encompass oil dependent nations and drive the economies of those who are able to drive the change. The political issue at hand will need to be overlooked if we would like to take ourselves out of a dying and unhealthy industry into a fresh and new one who's outlook is to clean the world up. 
+
+As I mentioned above, I would like to recreate this test and broaden the scope of the comparison to not just positive solar output but positive renewable output. This will allow us to look deeper into the question of renewable energy and the factors that hold it back.  
+
+After understanding the impacts of the solar industry and through data seeing the limiations of it as well, I would hope to see these barriers broken in order to create an energy structure that is built and harvest, rather than mined and controlled, while also cleaning up our atmosphere slowly but importantly. 
